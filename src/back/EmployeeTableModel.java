@@ -15,12 +15,17 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     public EmployeeTableModel(List<Employee> listEmployees) {
         this.listEmployees = listEmployees;
+        updateIndexes();
+    }
 
+
+    public void updateIndexes(){
         int indexCount = 1;
         for (Employee employee : listEmployees) {
             employee.setIndex(indexCount++);
         }
     }
+
 
     @Override
     public int getColumnCount() {

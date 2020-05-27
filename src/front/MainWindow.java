@@ -13,8 +13,10 @@ public class MainWindow extends JFrame {
         MainViewController mainViewController = new MainViewController(jTableSortingExample, generalButtonsPanel);
 
 
-        this.add(jTableSortingExample, BorderLayout.SOUTH);
+        this.setJMenuBar(new MenuBar());
+        this.add(jTableSortingExample, BorderLayout.CENTER);
         this.add(generalButtonsPanel, BorderLayout.NORTH);
+
 
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

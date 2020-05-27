@@ -46,6 +46,7 @@ public class JTableSortingExample extends JPanel {
 
     public void addEmployee(Employee employee){
         listEmployees.add(employee);
+        ((EmployeeTableModel)table.getModel()).updateIndexes();
         ((AbstractTableModel)table.getModel()).fireTableDataChanged();
 
     }
