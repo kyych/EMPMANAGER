@@ -4,6 +4,7 @@ import back.Employee;
 import back.EmployeeTableModel;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,11 +12,12 @@ import java.util.List;
 
 public class JTableSortingExample extends JPanel {
     private JTable table;
+    private List<Employee> listEmployees;
 
     public JTableSortingExample() {
 
 
-        List<Employee> listEmployees = createListEmployees();
+        listEmployees = createListEmployees();
         TableModel tableModel = new EmployeeTableModel(listEmployees);
         table = new JTable(tableModel);
 
@@ -40,5 +42,11 @@ public class JTableSortingExample extends JPanel {
         listEmployees.add(new Employee("Grażyna", "Szczęsna",11));
 
         return listEmployees;
+    }
+
+    public void addEmployee(Employee employee){
+        listEmployees.add(employee);
+        ((AbstractTableModel)table.getModel()).fireTableDataChanged();
+
     }
 }

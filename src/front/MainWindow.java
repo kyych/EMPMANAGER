@@ -7,8 +7,14 @@ public class MainWindow extends JFrame {
     public MainWindow() throws HeadlessException {
         super("EmployeeManager");
 
-        this.add(new JTableSortingExample(), BorderLayout.SOUTH);
-        this.add(new GeneralButtonsPanel(), BorderLayout.NORTH);
+        JTableSortingExample jTableSortingExample = new JTableSortingExample();
+        GeneralButtonsPanel generalButtonsPanel = new GeneralButtonsPanel();
+
+        MainViewController mainViewController = new MainViewController(jTableSortingExample, generalButtonsPanel);
+
+
+        this.add(jTableSortingExample, BorderLayout.SOUTH);
+        this.add(generalButtonsPanel, BorderLayout.NORTH);
 
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
