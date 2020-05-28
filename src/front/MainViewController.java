@@ -1,6 +1,7 @@
 package front;
 
 import back.Employee;
+import back.FileReader;
 import back.FileWriter;
 
 public class MainViewController {
@@ -8,6 +9,7 @@ public class MainViewController {
     private GeneralButtonsPanel generalButtonsPanel;
     private MenuBar menuBar;
     FileWriter fileWriter;
+    FileReader fileReader;
 
     public MainViewController(JTableSortingExample jTableSortingExample, GeneralButtonsPanel generalButtonsPanel, MenuBar menuBar) {
         this.jTableSortingExample = jTableSortingExample;
@@ -24,6 +26,12 @@ public class MainViewController {
     public void saveDataToFile(String path){
         fileWriter = new FileWriter(path);
         fileWriter.writeUsersToFile(jTableSortingExample.getListEmployees());
+        fileWriter.close();
+    }
+
+    public void readDataFromFile(String path){
+        fileReader = new FileReader(path);
+        jTableSortingExample.setListEmployees(fileReader.readUsersFromFile());
     }
 
 

@@ -32,4 +32,13 @@ public class FileWriter {
         }
     }
 
+    public void close(){
+        try {
+            fout.close();
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

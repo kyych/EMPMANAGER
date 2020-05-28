@@ -24,9 +24,7 @@ class MenuBar extends JMenuBar {
             int code = fileChooser.showOpenDialog(this.getRootPane().getContentPane());
             if (code == JFileChooser.APPROVE_OPTION) {
                 String path = fileChooser.getSelectedFile().getPath(); //this variable should be transfered to method
-                //that will handle opening files
-//                UserFileHandler userFileHandler = new UserFileHandler(path);
-//                userFileHandler.getUsersFromFile();
+                mainViewController.readDataFromFile(path);  //TODO: NOT WORKING
             } else {    // it should cover also diffrent extensions of files
                 JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "U have to choose data file!");
             }
