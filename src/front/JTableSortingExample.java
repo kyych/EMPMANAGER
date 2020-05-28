@@ -25,7 +25,7 @@ public class JTableSortingExample extends JPanel {
         *   check after adding "add" functionality
         */
 
-        table.setPreferredScrollableViewportSize(table.getPreferredSize());
+        table.setPreferredScrollableViewportSize(table.getPreferredScrollableViewportSize());
 
         // insert code for sorting here...
         table.setAutoCreateRowSorter(true);
@@ -38,8 +38,8 @@ public class JTableSortingExample extends JPanel {
         List<Employee> listEmployees = new ArrayList<>();
 
         // code to add dummy data here...
-        listEmployees.add(new Employee("Ada","Ginekolog",33));
-        listEmployees.add(new Employee("Grażyna", "Szczęsna",11));
+//        listEmployees.add(new Employee("Ada","Ginekolog",33));
+//        listEmployees.add(new Employee("Grażyna", "Szczęsna",11));
 
         return listEmployees;
     }
