@@ -1,6 +1,8 @@
 package back;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private int index;
     private String name;
     private String job;

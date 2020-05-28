@@ -9,6 +9,8 @@ class MenuBar extends JMenuBar {
     private JMenu menu;
     private JFileChooser fileChooser;
 
+    private MainViewController mainViewController;
+
 
     public MenuBar() {
         fileChooser = new JFileChooser();
@@ -31,6 +33,15 @@ class MenuBar extends JMenuBar {
         });
 
         saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+        saveFile.addActionListener(e -> {
+            int code = fileChooser.showOpenDialog(this.getRootPane().getContentPane());
+            if (code == JFileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getSelectedFile().getPath(); //this variable should be transfered to method
+                mainViewController.saveDataToFile(path);
+            } else {    // it should cover also diffrent extensions of files
+                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "U have to choose data file!");
+            }
+        });
 
         menu = new JMenu("File");
 
@@ -41,5 +52,10 @@ class MenuBar extends JMenuBar {
         menu.add(close);
 
         this.add(menu);
+    }
+
+
+    public void setController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
     }
 }

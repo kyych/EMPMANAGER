@@ -7,13 +7,14 @@ public class MainWindow extends JFrame {
     public MainWindow() throws HeadlessException {
         super("EmployeeManager");
 
+        MenuBar menuBar = new MenuBar();
         JTableSortingExample jTableSortingExample = new JTableSortingExample();
         GeneralButtonsPanel generalButtonsPanel = new GeneralButtonsPanel();
 
-        MainViewController mainViewController = new MainViewController(jTableSortingExample, generalButtonsPanel);
+        MainViewController mainViewController = new MainViewController(jTableSortingExample, generalButtonsPanel, menuBar);
 
 
-        this.setJMenuBar(new MenuBar());
+        this.setJMenuBar(menuBar);
         this.add(jTableSortingExample, BorderLayout.CENTER);
         this.add(generalButtonsPanel, BorderLayout.NORTH);
 

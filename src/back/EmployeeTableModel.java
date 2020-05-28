@@ -18,6 +18,9 @@ public class EmployeeTableModel extends AbstractTableModel {
         updateIndexes();
     }
 
+    public List<Employee> getListEmployees() {
+        return listEmployees;
+    }
 
     public void updateIndexes(){
         int indexCount = 1;

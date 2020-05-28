@@ -14,6 +14,10 @@ public class JTableSortingExample extends JPanel {
     private JTable table;
     private List<Employee> listEmployees;
 
+    public List<Employee> getListEmployees() {
+        return listEmployees;
+    }
+
     public JTableSortingExample() {
 
 
