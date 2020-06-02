@@ -19,7 +19,7 @@ public class JTableSortingExample extends JPanel {
     }
 
     public void setListEmployees(List<Employee> listEmployees) {
-        this.listEmployees = listEmployees;
+        this.listEmployees.addAll(listEmployees);
         ((EmployeeTableModel)table.getModel()).updateIndexes();
         ((AbstractTableModel)table.getModel()).fireTableDataChanged();
     }
