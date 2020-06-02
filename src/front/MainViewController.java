@@ -22,6 +22,11 @@ public class MainViewController {
     public void addEmployee(Employee employee){
         jTableSortingExample.addEmployee(employee);
     }
+    public void removeEmployee(){
+        jTableSortingExample
+                .removeEmployee(jTableSortingExample.getTable().getSelectedRow());
+    }
+
 
     public void saveDataToFile(String path){
         fileWriter = new FileWriter(path);

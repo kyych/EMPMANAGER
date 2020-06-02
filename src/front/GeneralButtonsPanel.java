@@ -40,6 +40,13 @@ public class GeneralButtonsPanel extends JPanel {
 
         });
 
+
+        deleteButton.addActionListener(e -> {
+            
+            mainViewController.removeEmployee();
+        });
+
+
         this.add(deleteButton);
         this.add(editButton);
     }

@@ -18,6 +18,10 @@ public class JTableSortingExample extends JPanel {
         return listEmployees;
     }
 
+    public JTable getTable() {
+        return table;
+    }
+
     public void setListEmployees(List<Employee> listEmployees) {
         this.listEmployees.addAll(listEmployees);
         ((EmployeeTableModel)table.getModel()).updateIndexes();
@@ -54,6 +58,13 @@ public class JTableSortingExample extends JPanel {
 
     public void addEmployee(Employee employee){
         listEmployees.add(employee);
+        ((EmployeeTableModel)table.getModel()).updateIndexes();
+        ((AbstractTableModel)table.getModel()).fireTableDataChanged();
+
+    }
+
+    public void removeEmployee(int selectedRow) {
+        listEmployees.remove(selectedRow);
         ((EmployeeTableModel)table.getModel()).updateIndexes();
         ((AbstractTableModel)table.getModel()).fireTableDataChanged();
 

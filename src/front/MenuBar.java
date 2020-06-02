@@ -41,6 +41,7 @@ class MenuBar extends JMenuBar {
             }
         });
 
+
         menu = new JMenu("File");
 
         menu.add(openFile);
