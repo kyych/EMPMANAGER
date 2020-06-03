@@ -18,6 +18,12 @@ public class EmployeeTableModel extends AbstractTableModel {
         updateIndexes();
     }
 
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+//        return super.isCellEditable(rowIndex, columnIndex);
+        return true;
+    }
+
     public List<Employee> getListEmployees() {
         return listEmployees;
     }
@@ -80,10 +86,24 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex) {
-        Employee employee = listEmployees.get(rowIndex);
-        if (columnIndex == COLUMN_NO) {
-            employee.setIndex((int) value);
+//        Employee employee = listEmployees.get(rowIndex);
+//        if (columnIndex == COLUMN_NO) {
+//            employee.setIndex((int) value);
+//        }
+
+        Employee row = listEmployees.get(rowIndex);
+        if(0 == columnIndex){
+            row.setIndex((Integer) value);
+        } else if(1 == columnIndex){
+            row.setName((String) value);
+        } else if(2==columnIndex){
+            row.setJob((String) value);
+        } else if(3 == columnIndex){
+            row.setAge((Integer)value);
+        } else{
+            //TODO: throw exception
         }
+
     }
 
 }
