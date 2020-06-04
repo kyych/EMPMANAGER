@@ -13,6 +13,11 @@ import java.util.List;
 public class JTableSortingExample extends JPanel {
     private JTable table;
     private List<Employee> listEmployees;
+    private TableModel tableModel;
+
+    public EmployeeTableModel getTableModel() {
+        return (EmployeeTableModel)tableModel;
+    }
 
     public List<Employee> getListEmployees() {
         return listEmployees;
@@ -30,7 +35,7 @@ public class JTableSortingExample extends JPanel {
 
     public JTableSortingExample() {
         listEmployees = createListEmployees();
-        TableModel tableModel = new EmployeeTableModel(listEmployees);
+        tableModel = new EmployeeTableModel(listEmployees);
         table = new JTable(tableModel);
 
         /* TODO: CAN CAUSE TROUBLE WHILE ADDING NEW EMPLOYEES

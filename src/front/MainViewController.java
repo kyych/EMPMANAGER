@@ -8,14 +8,17 @@ public class MainViewController {
     private JTableSortingExample jTableSortingExample;
     private GeneralButtonsPanel generalButtonsPanel;
     private MenuBar menuBar;
+    private FilterPanel filterPanel;
     FileWriter fileWriter;
     FileReader fileReader;
 
-    public MainViewController(JTableSortingExample jTableSortingExample, GeneralButtonsPanel generalButtonsPanel, MenuBar menuBar) {
+    public MainViewController(JTableSortingExample jTableSortingExample, GeneralButtonsPanel generalButtonsPanel, MenuBar menuBar, FilterPanel filterPanel) {
         this.jTableSortingExample = jTableSortingExample;
         this.generalButtonsPanel = generalButtonsPanel;
         this.menuBar = menuBar;
+        this.filterPanel = filterPanel;
         this.generalButtonsPanel.setController(this);
+        this.filterPanel.setController(this);
         this.menuBar.setController(this);
     }
 
@@ -39,5 +42,7 @@ public class MainViewController {
         jTableSortingExample.setListEmployees(fileReader.readUsersFromFile());
     }
 
-
+    public JTableSortingExample getjTableSortingExample() {
+        return jTableSortingExample;
+    }
 }

@@ -10,13 +10,17 @@ public class MainWindow extends JFrame {
         MenuBar menuBar = new MenuBar();
         JTableSortingExample jTableSortingExample = new JTableSortingExample();
         GeneralButtonsPanel generalButtonsPanel = new GeneralButtonsPanel();
+        FilterPanel filterPanel = new FilterPanel();
 
-        MainViewController mainViewController = new MainViewController(jTableSortingExample, generalButtonsPanel, menuBar);
+        MainViewController mainViewController = new MainViewController(jTableSortingExample,
+                generalButtonsPanel, menuBar, filterPanel);
+        filterPanel.setUI();
 
 
         this.setJMenuBar(menuBar);
         this.add(jTableSortingExample, BorderLayout.CENTER);
         this.add(generalButtonsPanel, BorderLayout.NORTH);
+        this.add(filterPanel, BorderLayout.SOUTH);
 
 
         pack();
