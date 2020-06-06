@@ -27,7 +27,15 @@ public class JTableSortingExample extends JPanel {
         return table;
     }
 
+
+    public void addListEmployees(List<Employee> listEmployees) {
+        this.listEmployees.addAll(listEmployees);
+        ((EmployeeTableModel)table.getModel()).updateIndexes();
+        ((AbstractTableModel)table.getModel()).fireTableDataChanged();
+    }
+
     public void setListEmployees(List<Employee> listEmployees) {
+        this.listEmployees.clear();
         this.listEmployees.addAll(listEmployees);
         ((EmployeeTableModel)table.getModel()).updateIndexes();
         ((AbstractTableModel)table.getModel()).fireTableDataChanged();

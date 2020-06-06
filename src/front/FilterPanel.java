@@ -3,7 +3,6 @@ package front;
 import back.EmployeeTableModel;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.TableRowSorter;
@@ -12,6 +11,7 @@ import java.awt.*;
 public class FilterPanel extends JPanel {
     private JTextField searchForAllTextField = new JTextField();
     private JTextField searchBySalary = new JTextField();
+    private Dimension screenDim;
     private MainViewController controller;
     private TableRowSorter<EmployeeTableModel> tableRowSorter; //= new TableRowSorter<>(controller.getjTableSortingExample().getTableModel());
 
@@ -20,13 +20,17 @@ public class FilterPanel extends JPanel {
     }
 
     public void setUI(){
+        screenDim = Toolkit.getDefaultToolkit().getScreenSize();
         tableRowSorter = new TableRowSorter<>(controller.getjTableSortingExample().getTableModel());
 
         controller.getjTableSortingExample().getTable().setRowSorter(tableRowSorter);
 //        this.add(new JLabel("Specify a word to match:"),
 //                BorderLayout.WEST);
-        searchForAllTextField.setPreferredSize(new Dimension(350,100));
-        searchBySalary.setPreferredSize(new Dimension(350,100));
+
+//        searchForAllTextField.setPreferredSize(new Dimension(350,100));
+//        searchBySalary.setPreferredSize(new Dimension(350,100));
+        searchForAllTextField.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/75));  //TODO: try not to hardcode those values based on proportions
+        searchBySalary.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/75));
         this.add(searchForAllTextField, BorderLayout.WEST);
         this.add(searchBySalary, BorderLayout.EAST);
 
@@ -78,7 +82,7 @@ public class FilterPanel extends JPanel {
                 if (text.trim().length() == 0) {
                     tableRowSorter.setRowFilter(null);
                 } else {
-                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));
+                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));    //second parameter stands for column to sort :D
                 }
             }
 

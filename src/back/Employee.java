@@ -3,23 +3,23 @@ package back;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    private int index;
-    private String name;
+    private int ID;
+    private String name, surname;
     private String job;
-    private int age;
+    private int experience; // MONTHS
 
-    public Employee(String name, String job, int age) {
+    public Employee(String name, String job, int experience) {
         this.name = name;
         this.job = job;
-        this.age = age;
+        this.experience = experience;
     }
 
-    public int getIndex() {
-        return index;
+    public int getID() {
+        return ID;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getName() {
@@ -38,11 +38,11 @@ public class Employee implements Serializable {
         this.job = job;
     }
 
-    public int getAge() {
-        return age;
+    public int getExperience() {
+        return experience;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setExperience(int experience) {
+        this.experience = experience;
     }
 }

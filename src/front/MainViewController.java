@@ -39,6 +39,11 @@ public class MainViewController {
 
     public void readDataFromFile(String path){
         fileReader = new FileReader(path);
+        jTableSortingExample.addListEmployees(fileReader.readUsersFromFile());
+    }
+
+    public void replaceDataFromFile(String path){
+        fileReader = new FileReader(path);
         jTableSortingExample.setListEmployees(fileReader.readUsersFromFile());
     }
 

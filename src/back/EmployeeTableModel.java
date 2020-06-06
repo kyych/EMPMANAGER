@@ -8,9 +8,9 @@ public class EmployeeTableModel extends AbstractTableModel {
     private static final int COLUMN_NO      = 0;
     private static final int COLUMN_NAME    = 1;
     private static final int COLUMN_JOB     = 2;
-    private static final int COLUMN_AGE     = 3;
+    private static final int COLUMN_EXP     = 3;
 
-    private String[] columnNames = {"No #", "Name", "Job", "Age"};
+    private String[] columnNames = {"EmpoyeeID", "Name", "Job", "EXPERIENCE"};
     private List<Employee> listEmployees;
 
     public EmployeeTableModel(List<Employee> listEmployees) {
@@ -20,8 +20,8 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-//        return super.isCellEditable(rowIndex, columnIndex);
-        return true;
+        if(columnIndex==0) return false;    // ID shouldnt be editable
+        else return true;
     }
 
     public List<Employee> getListEmployees() {
@@ -31,7 +31,7 @@ public class EmployeeTableModel extends AbstractTableModel {
     public void updateIndexes(){
         int indexCount = 1;
         for (Employee employee : listEmployees) {
-            employee.setIndex(indexCount++);
+            employee.setID(indexCount++);
         }
     }
 
@@ -66,7 +66,7 @@ public class EmployeeTableModel extends AbstractTableModel {
 
         switch (columnIndex) {
             case COLUMN_NO:
-                returnValue = employee.getIndex();
+                returnValue = employee.getID();
                 break;
             case COLUMN_NAME:
                 returnValue = employee.getName();
@@ -74,8 +74,8 @@ public class EmployeeTableModel extends AbstractTableModel {
             case COLUMN_JOB:
                 returnValue = employee.getJob();
                 break;
-            case COLUMN_AGE:
-                returnValue = employee.getAge();
+            case COLUMN_EXP:
+                returnValue = employee.getExperience();
                 break;
             default:
                 throw new IllegalArgumentException("Invalid column index");
@@ -93,13 +93,13 @@ public class EmployeeTableModel extends AbstractTableModel {
 
         Employee row = listEmployees.get(rowIndex);
         if(0 == columnIndex){
-            row.setIndex((Integer) value);
+            row.setID((Integer) value);
         } else if(1 == columnIndex){
             row.setName((String) value);
         } else if(2==columnIndex){
             row.setJob((String) value);
         } else if(3 == columnIndex){
-            row.setAge((Integer)value);
+            row.setExperience((Integer)value);
         } else{
             //TODO: throw exception
         }
