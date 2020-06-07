@@ -22,18 +22,18 @@ public class GeneralButtonsPanel extends JPanel {
         addButton.addActionListener(e -> {
             JTextField name = new JTextField();
             JTextField job = new JTextField();
-            JTextField age = new JTextField();
+            JTextField experience = new JTextField();
 
             Object[] employeeDataInput = {
                     "Name: ", name,
                     "Job: ", job,
-                    "Age: ", age
+                    "EXP (MONTHS): ", experience
             };
 
             JOptionPane.showConfirmDialog(this.getRootPane().getContentPane(), employeeDataInput, "Add user",
                     JOptionPane.PLAIN_MESSAGE);
 
-            mainViewController.addEmployee(new Employee(name.getText(), job.getText(), Integer.valueOf(age.getText())));
+            mainViewController.addEmployee(new Employee(name.getText(), job.getText(), Integer.valueOf(experience.getText())));
 
 
 //            System.out.println("DEBUG: " + name.getText()); //TODO: based on this data create employee
