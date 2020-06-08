@@ -10,8 +10,8 @@ public class EmployeeTableModel extends AbstractTableModel {
     private static final int COLUMN_JOB     = 2;
     private static final int COLUMN_EXP     = 3;
 
-    private String[] columnNames = {"EmpoyeeID", "Name", "Job", "EXPERIENCE"};
-    private List<Employee> listEmployees;
+    private final String[] columnNames = {"EmpoyeeID", "Name", "Job", "EXPERIENCE"};
+    private final List<Employee> listEmployees;
 
     public EmployeeTableModel(List<Employee> listEmployees) {
         this.listEmployees = listEmployees;
@@ -20,13 +20,14 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if(columnIndex==0) return false;    // ID shouldnt be editable
-        else return true;
+        return columnIndex != 0;    // ID shouldnt be editable
     }
 
-    public List<Employee> getListEmployees() {
-        return listEmployees;
-    }
+// --Commented out by Inspection START (07.06.2020, 23:02):
+//    public List<Employee> getListEmployees() {
+//        return listEmployees;
+//    }
+// --Commented out by Inspection STOP (07.06.2020, 23:02)
 
     public void updateIndexes(){
         int indexCount = 1;

@@ -5,15 +5,15 @@ import back.FileReader;
 import back.FileWriter;
 
 public class MainViewController {
-    private JTableSortingExample jTableSortingExample;
-    private GeneralButtonsPanel generalButtonsPanel;
-    private MenuBar menuBar;
-    private FilterPanel filterPanel;
+    private final EmployeeTable employeeTable;
+    private final GeneralButtonsPanel generalButtonsPanel;
+    private final MenuBar menuBar;
+    private final FilterPanel filterPanel;
     FileWriter fileWriter;
     FileReader fileReader;
 
-    public MainViewController(JTableSortingExample jTableSortingExample, GeneralButtonsPanel generalButtonsPanel, MenuBar menuBar, FilterPanel filterPanel) {
-        this.jTableSortingExample = jTableSortingExample;
+    public MainViewController(EmployeeTable employeeTable, GeneralButtonsPanel generalButtonsPanel, MenuBar menuBar, FilterPanel filterPanel) {
+        this.employeeTable = employeeTable;
         this.generalButtonsPanel = generalButtonsPanel;
         this.menuBar = menuBar;
         this.filterPanel = filterPanel;
@@ -23,31 +23,31 @@ public class MainViewController {
     }
 
     public void addEmployee(Employee employee){
-        jTableSortingExample.addEmployee(employee);
+        employeeTable.addEmployee(employee);
     }
     public void removeEmployee(){
-        jTableSortingExample
-                .removeEmployee(jTableSortingExample.getTable().getSelectedRow());
+        employeeTable
+                .removeEmployee(employeeTable.getTable().getSelectedRow());
     }
 
 
     public void saveDataToFile(String path){
         fileWriter = new FileWriter(path);
-        fileWriter.writeUsersToFile(jTableSortingExample.getListEmployees());
+        fileWriter.writeUsersToFile(employeeTable.getListEmployees());
         fileWriter.close();
     }
 
     public void readDataFromFile(String path){
         fileReader = new FileReader(path);
-        jTableSortingExample.addListEmployees(fileReader.readUsersFromFile());
+        employeeTable.addListEmployees(fileReader.readUsersFromFile());
     }
 
     public void replaceDataFromFile(String path){
         fileReader = new FileReader(path);
-        jTableSortingExample.setListEmployees(fileReader.readUsersFromFile());
+        employeeTable.setListEmployees(fileReader.readUsersFromFile());
     }
 
-    public JTableSortingExample getjTableSortingExample() {
-        return jTableSortingExample;
+    public EmployeeTable getEmployeeTable() {
+        return employeeTable;
     }
 }

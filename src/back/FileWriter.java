@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class FileWriter {
-    private String path;
+    private final String path;
     private FileOutputStream fout;
     private ObjectOutputStream oos;
 

@@ -1,4 +1,3 @@
-import front.JTableSortingExample;
 import front.MainWindow;
 
 import javax.swing.*;

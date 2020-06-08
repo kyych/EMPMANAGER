@@ -8,17 +8,17 @@ public class MainWindow extends JFrame {
         super("EmployeeManager");
 
         MenuBar menuBar = new MenuBar();
-        JTableSortingExample jTableSortingExample = new JTableSortingExample();
+        EmployeeTable employeeTable = new EmployeeTable();
         GeneralButtonsPanel generalButtonsPanel = new GeneralButtonsPanel();
         FilterPanel filterPanel = new FilterPanel();
 
-        MainViewController mainViewController = new MainViewController(jTableSortingExample,
+        MainViewController mainViewController = new MainViewController(employeeTable,
                 generalButtonsPanel, menuBar, filterPanel);
         filterPanel.setUI();
 
 
         this.setJMenuBar(menuBar);
-        this.add(jTableSortingExample, BorderLayout.CENTER);
+        this.add(employeeTable, BorderLayout.CENTER);
         this.add(generalButtonsPanel, BorderLayout.NORTH);
         this.add(filterPanel, BorderLayout.SOUTH);
 

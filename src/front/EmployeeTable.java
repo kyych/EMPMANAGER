@@ -10,10 +10,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JTableSortingExample extends JPanel {
-    private JTable table;
-    private List<Employee> listEmployees;
-    private TableModel tableModel;
+public class EmployeeTable extends JPanel {
+    private final JTable table;
+    private final List<Employee> listEmployees;
+    private final TableModel tableModel;
 
     public EmployeeTableModel getTableModel() {
         return (EmployeeTableModel)tableModel;
@@ -39,18 +39,15 @@ public class JTableSortingExample extends JPanel {
         addListEmployees(listEmployees);
     }
 
-    public JTableSortingExample() {
+    public EmployeeTable() {
         listEmployees = createListEmployees();
         tableModel = new EmployeeTableModel(listEmployees);
         table = new JTable(tableModel);
 
-        /* TODO: CAN CAUSE TROUBLE WHILE ADDING NEW EMPLOYEES
-        *   check after adding "add" functionality
-        */
-
         table.setPreferredScrollableViewportSize(table.getPreferredScrollableViewportSize());
 
-        // insert code for sorting here...
+        //  code for sorting can be added here
+        //  using default sorting provided by swing JTable
         table.setAutoCreateRowSorter(true);
 
         this.setLayout(new BorderLayout());
@@ -60,8 +57,7 @@ public class JTableSortingExample extends JPanel {
     public List<Employee> createListEmployees() {
         List<Employee> listEmployees = new ArrayList<>();
 
-        // code to add dummy data here...
-//        listEmployees.add(new Employee("Ada","Ginekolog",33));
+        // hardcode employees here for testing purposes
 //        listEmployees.add(new Employee("Grażyna", "Szczęsna",11));
 
         return listEmployees;

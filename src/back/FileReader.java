@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.util.List;
 
 public class FileReader {
-    private String path;
+    private final String path;
     private FileInputStream finput;
     private ObjectInputStream ois;
 

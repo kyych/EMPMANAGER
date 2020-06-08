@@ -5,9 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 class MenuBar extends JMenuBar {
-    private JMenuItem addDataFromFile, saveFile, close, openFile;
-    private JMenu menu;
-    private JFileChooser fileChooser;
+    private final JMenuItem addDataFromFile;
+    private final JMenuItem saveFile;
+    private final JMenuItem close;
+    private final JMenuItem openFile;
+    private final JMenu menu;
+    private final JFileChooser fileChooser;
 
     private MainViewController mainViewController;
 
@@ -45,9 +48,9 @@ class MenuBar extends JMenuBar {
         saveFile.addActionListener(e -> {
             int code = fileChooser.showOpenDialog(this.getRootPane().getContentPane());
             if (code == JFileChooser.APPROVE_OPTION) {
-                String path = fileChooser.getSelectedFile().getPath(); //this variable should be transfered to method
+                String path = fileChooser.getSelectedFile().getPath();
                 mainViewController.saveDataToFile(path);
-            } else {    // it should cover also diffrent extensions of files
+            } else {
                 JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "U have to choose data file!");
             }
         });

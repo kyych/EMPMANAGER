@@ -1,18 +1,15 @@
 package front;
 
 import back.Employee;
-import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GeneralButtonsPanel extends JPanel {
-    JButton addButton =     new JButton("Add");
-    JButton deleteButton =  new JButton("Delete");
-    JButton editButton =    new JButton("Edit");
+    final JButton addButton =     new JButton("Add");
+    final JButton deleteButton =  new JButton("Delete");
 
     private MainViewController mainViewController;
-
 
     public GeneralButtonsPanel() {
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -33,22 +30,25 @@ public class GeneralButtonsPanel extends JPanel {
             JOptionPane.showConfirmDialog(this.getRootPane().getContentPane(), employeeDataInput, "Add user",
                     JOptionPane.PLAIN_MESSAGE);
 
-            mainViewController.addEmployee(new Employee(name.getText(), job.getText(), Integer.valueOf(experience.getText())));
+            try{
+                int exp = Integer.parseInt(experience.getText());
+                mainViewController.addEmployee(new Employee(name.getText(), job.getText(), exp));
+            } catch (NumberFormatException ex){
+                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), new String("Please enter the experience in Integers"));
+            } catch (Exception ex){
+                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), new String("Error happened, please contact the dev."));
+            }
 
 
-//            System.out.println("DEBUG: " + name.getText()); //TODO: based on this data create employee
 
         });
 
 
         deleteButton.addActionListener(e -> {
-            
             mainViewController.removeEmployee();
         });
 
-
         this.add(deleteButton);
-        this.add(editButton);
     }
 
     public void setController(MainViewController controller){

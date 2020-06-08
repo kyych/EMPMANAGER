@@ -7,14 +7,12 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 public class FilterPanel extends JPanel {
 //    private JTextField searchForAllTextField = new JTextField("Search for all");
 //    private JTextField searchBySalary = new JTextField("Search by salary");
-    private PlaceholderTextField searchForAllTextField = new PlaceholderTextField("");
-    private PlaceholderTextField searchBySalary = new PlaceholderTextField("");
+    private final PlaceholderTextField searchForAllTextField = new PlaceholderTextField("");
+    private final PlaceholderTextField searchBySalary = new PlaceholderTextField("");
 
     private Dimension screenDim;
     private MainViewController controller;
@@ -26,14 +24,10 @@ public class FilterPanel extends JPanel {
 
     public void setUI(){
         screenDim = Toolkit.getDefaultToolkit().getScreenSize();
-        tableRowSorter = new TableRowSorter<>(controller.getjTableSortingExample().getTableModel());
+        tableRowSorter = new TableRowSorter<>(controller.getEmployeeTable().getTableModel());
 
-        controller.getjTableSortingExample().getTable().setRowSorter(tableRowSorter);
-//        this.add(new JLabel("Specify a word to match:"),
-//                BorderLayout.WEST);
+        controller.getEmployeeTable().getTable().setRowSorter(tableRowSorter);
 
-//        searchForAllTextField.setPreferredSize(new Dimension(350,100));
-//        searchBySalary.setPreferredSize(new Dimension(350,100));
         searchForAllTextField.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/60));  //TODO: try not to hardcode those values based on proportions
         searchForAllTextField.setPlaceholder("Search");
         searchBySalary.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/60));
