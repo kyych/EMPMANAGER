@@ -7,12 +7,10 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class FileWriter {
-    private final String path;
     private FileOutputStream fout;
     private ObjectOutputStream oos;
 
     public FileWriter(String path) {
-        this.path = path;
         try {
             fout = new FileOutputStream(path);
             oos = new ObjectOutputStream(fout);

@@ -55,12 +55,11 @@ public class EmployeeTable extends JPanel {
     }
 
     public List<Employee> createListEmployees() {
-        List<Employee> listEmployees = new ArrayList<>();
-
+        List<Employee> listEmployee= new ArrayList<>();
         // hardcode employees here for testing purposes
 //        listEmployees.add(new Employee("Grażyna", "Szczęsna",11));
 
-        return listEmployees;
+        return new ArrayList<>();
     }
 
     public void addEmployee(Employee employee){

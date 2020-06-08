@@ -16,12 +16,10 @@ public class MainWindow extends JFrame {
                 generalButtonsPanel, menuBar, filterPanel);
         filterPanel.setUI();
 
-
         this.setJMenuBar(menuBar);
         this.add(employeeTable, BorderLayout.CENTER);
         this.add(generalButtonsPanel, BorderLayout.NORTH);
         this.add(filterPanel, BorderLayout.SOUTH);
-
 
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -10,7 +10,7 @@ public class EmployeeTableModel extends AbstractTableModel {
     private static final int COLUMN_JOB     = 2;
     private static final int COLUMN_EXP     = 3;
 
-    private final String[] columnNames = {"EmpoyeeID", "Name", "Job", "EXPERIENCE"};
+    private final String[] columnNames = {"EmployeeID", "Name", "Job", "EXPERIENCE"};
     private final List<Employee> listEmployees;
 
     public EmployeeTableModel(List<Employee> listEmployees) {
@@ -22,12 +22,6 @@ public class EmployeeTableModel extends AbstractTableModel {
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex != 0;    // ID shouldnt be editable
     }
-
-// --Commented out by Inspection START (07.06.2020, 23:02):
-//    public List<Employee> getListEmployees() {
-//        return listEmployees;
-//    }
-// --Commented out by Inspection STOP (07.06.2020, 23:02)
 
     public void updateIndexes(){
         int indexCount = 1;
@@ -63,7 +57,7 @@ public class EmployeeTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Employee employee = listEmployees.get(rowIndex);
-        Object returnValue = null;
+        Object returnValue;
 
         switch (columnIndex) {
             case COLUMN_NO:
@@ -102,7 +96,7 @@ public class EmployeeTableModel extends AbstractTableModel {
         } else if(3 == columnIndex){
             row.setExperience((Integer)value);
         } else{
-            //TODO: throw exception
+            throw new IllegalArgumentException("Wrong index number");
         }
 
     }

@@ -9,26 +9,23 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 
 public class FilterPanel extends JPanel {
-//    private JTextField searchForAllTextField = new JTextField("Search for all");
-//    private JTextField searchBySalary = new JTextField("Search by salary");
     private final PlaceholderTextField searchForAllTextField = new PlaceholderTextField("");
     private final PlaceholderTextField searchBySalary = new PlaceholderTextField("");
 
-    private Dimension screenDim;
     private MainViewController controller;
-    private TableRowSorter<EmployeeTableModel> tableRowSorter; //= new TableRowSorter<>(controller.getjTableSortingExample().getTableModel());
+    private TableRowSorter<EmployeeTableModel> tableRowSorter;
 
     public FilterPanel() {
         this.setLayout(new BorderLayout());
     }
 
     public void setUI(){
-        screenDim = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenDim = Toolkit.getDefaultToolkit().getScreenSize();
         tableRowSorter = new TableRowSorter<>(controller.getEmployeeTable().getTableModel());
 
         controller.getEmployeeTable().getTable().setRowSorter(tableRowSorter);
 
-        searchForAllTextField.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/60));  //TODO: try not to hardcode those values based on proportions
+        searchForAllTextField.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/60));
         searchForAllTextField.setPlaceholder("Search");
         searchBySalary.setPreferredSize(new Dimension(screenDim.width/5, screenDim.height/60));
         searchBySalary.setPlaceholder("Search by salary");
@@ -83,13 +80,13 @@ public class FilterPanel extends JPanel {
                 if (text.trim().length() == 0) {
                     tableRowSorter.setRowFilter(null);
                 } else {
-                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));    //second parameter stands for column to sort :D
+                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));    //second parameter stands for column to sort
                 }
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                throw new UnsupportedOperationException("Not supported yet.");
 
             }
         });

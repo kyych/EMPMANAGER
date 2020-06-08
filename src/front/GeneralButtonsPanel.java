@@ -34,13 +34,10 @@ public class GeneralButtonsPanel extends JPanel {
                 int exp = Integer.parseInt(experience.getText());
                 mainViewController.addEmployee(new Employee(name.getText(), job.getText(), exp));
             } catch (NumberFormatException ex){
-                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), new String("Please enter the experience in Integers"));
+                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "Please enter the experience in Integers");
             } catch (Exception ex){
-                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), new String("Error happened, please contact the dev."));
+                JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "Error happened, please contact the dev.");
             }
-
-
-
         });
 
 

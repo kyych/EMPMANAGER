@@ -39,6 +39,7 @@ public class MainViewController {
 
     public void readDataFromFile(String path){
         fileReader = new FileReader(path);
+        fileReader.connectMenuView(this.menuBar);
         employeeTable.addListEmployees(fileReader.readUsersFromFile());
     }
 

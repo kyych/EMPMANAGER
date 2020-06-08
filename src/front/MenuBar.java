@@ -4,12 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-class MenuBar extends JMenuBar {
-    private final JMenuItem addDataFromFile;
-    private final JMenuItem saveFile;
-    private final JMenuItem close;
-    private final JMenuItem openFile;
-    private final JMenu menu;
+public class MenuBar extends JMenuBar {
     private final JFileChooser fileChooser;
 
     private MainViewController mainViewController;
@@ -17,10 +12,10 @@ class MenuBar extends JMenuBar {
 
     public MenuBar() {
         fileChooser = new JFileChooser();
-        openFile = new JMenuItem("Open File");
-        addDataFromFile = new JMenuItem("Add Data");
-        saveFile = new JMenuItem("Save");
-        close = new JMenuItem("Close");
+        JMenuItem openFile = new JMenuItem("Open File");
+        JMenuItem addDataFromFile = new JMenuItem("Add Data");
+        JMenuItem saveFile = new JMenuItem("Save");
+        JMenuItem close = new JMenuItem("Close");
 
 
         addDataFromFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
@@ -56,7 +51,7 @@ class MenuBar extends JMenuBar {
         });
 
 
-        menu = new JMenu("File");
+        JMenu menu = new JMenu("File");
 
 
         menu.add(openFile);
