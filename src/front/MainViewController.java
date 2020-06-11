@@ -6,19 +6,15 @@ import back.FileWriter;
 
 public class MainViewController {
     private final EmployeeTable employeeTable;
-    private final GeneralButtonsPanel generalButtonsPanel;
     private final MenuBar menuBar;
-    private final FilterPanel filterPanel;
     FileWriter fileWriter;
     FileReader fileReader;
 
     public MainViewController(EmployeeTable employeeTable, GeneralButtonsPanel generalButtonsPanel, MenuBar menuBar, FilterPanel filterPanel) {
         this.employeeTable = employeeTable;
-        this.generalButtonsPanel = generalButtonsPanel;
         this.menuBar = menuBar;
-        this.filterPanel = filterPanel;
-        this.generalButtonsPanel.setController(this);
-        this.filterPanel.setController(this);
+        generalButtonsPanel.setController(this);
+        filterPanel.setController(this);
         this.menuBar.setController(this);
     }
 

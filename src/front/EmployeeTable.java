@@ -58,6 +58,11 @@ public class EmployeeTable extends JPanel {
         JComboBox<Position> comboBox = new JComboBox<Position>(Position.values());
         positionColumn.setCellEditor(new DefaultCellEditor(comboBox));
 
+
+        //set size of column with ID
+        TableColumn idColumn = table.getColumnModel().getColumn(0); //0 is ID COLUMN
+        idColumn.setPreferredWidth(getWidth()); //sets current width of this component
+
         this.setLayout(new BorderLayout());
         add(new JScrollPane(table), BorderLayout.CENTER);
     }

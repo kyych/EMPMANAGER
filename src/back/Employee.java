@@ -17,11 +17,12 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
-    public Employee(String name, String surname, Position job, int experience) {
+    public Employee(String name, String surname, Position job, int experience, double salary) {
         this.name = name;
         this.surname = surname;
         this.job = job;
         this.experience = experience;
+        this.salary = salary;
     }
 
 // --Commented out by Inspection START (07.06.2020, 23:03):

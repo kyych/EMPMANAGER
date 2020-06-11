@@ -10,9 +10,10 @@ public class EmployeeTableModel extends AbstractTableModel {
     private static final int COLUMN_SURNAME = 2;
     private static final int COLUMN_JOB     = 3;
     private static final int COLUMN_EXP     = 4;
+    private static final int COLUMN_SALARY  = 5;
 
 
-    private final String[] columnNames = {"EmployeeID", "Name", "Surname", "Job", "EXPERIENCE"};
+    private final String[] columnNames = {"EmployeeID", "Name", "Surname", "Job", "EXPERIENCE", "Salary"};
     private final List<Employee> listEmployees;
 
     public EmployeeTableModel(List<Employee> listEmployees) {
@@ -77,6 +78,9 @@ public class EmployeeTableModel extends AbstractTableModel {
             case COLUMN_SURNAME:
                 returnValue = employee.getSurname();
                 break;
+            case COLUMN_SALARY:
+                returnValue = employee.getSalary();
+                break;
             default:
                 throw new IllegalArgumentException("Invalid column index");
         }
@@ -102,6 +106,8 @@ public class EmployeeTableModel extends AbstractTableModel {
             row.setExperience((Integer)value);
         } else if(COLUMN_SURNAME == columnIndex){
             row.setSurname((String)value);
+        } else if(COLUMN_SALARY == columnIndex){
+            row.setSalary((double)value);
         } else{
             throw new IllegalArgumentException("Wrong index number");
         }

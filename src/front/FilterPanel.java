@@ -68,8 +68,7 @@ public class FilterPanel extends JPanel {
                 if (text.trim().length() == 0) {
                     tableRowSorter.setRowFilter(null);
                 } else {
-                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)"+text, 3)); // TODO: AFTER MODEL BEING UPDATED, CHANGE COLUMN NUMBER (3) TO SALARY COLUMN
-                                                                                                        // 3 is age column, to change
+                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)"+text, 5)); // 5 is salary column
                 }
             }
 
@@ -80,7 +79,7 @@ public class FilterPanel extends JPanel {
                 if (text.trim().length() == 0) {
                     tableRowSorter.setRowFilter(null);
                 } else {
-                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));    //second parameter stands for column to sort
+                    tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,5));    //second parameter stands for column to sort
                 }
             }
 

@@ -15,8 +15,6 @@ public class MenuBar extends JMenuBar {
         JMenuItem openFile = new JMenuItem("Open File");
         JMenuItem addDataFromFile = new JMenuItem("Add Data");
         JMenuItem saveFile = new JMenuItem("Save");
-        JMenuItem close = new JMenuItem("Close");
-
 
         addDataFromFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
         addDataFromFile.addActionListener(e -> {
@@ -58,8 +56,6 @@ public class MenuBar extends JMenuBar {
         menu.add(addDataFromFile);
         menu.addSeparator();
         menu.add(saveFile);
-        menu.addSeparator();
-        menu.add(close);
 
         this.add(menu);
     }
