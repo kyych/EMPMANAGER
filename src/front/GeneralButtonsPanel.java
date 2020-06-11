@@ -1,6 +1,7 @@
 package front;
 
 import back.Employee;
+import back.Position;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,13 +20,14 @@ public class GeneralButtonsPanel extends JPanel {
         addButton.addActionListener(e -> {
             JTextField name = new JTextField();
             JTextField surname = new JTextField();
-            JTextField job = new JTextField();
+            //JTextField job = new JTextField();
+            JComboBox<Position> positionJComboBox = new JComboBox<Position>(Position.values());
             JTextField experience = new JTextField();
 
             Object[] employeeDataInput = {
                     "Name: ", name,
                     "Surname: ", surname,
-                    "Job: ", job,
+                    "Job: ", positionJComboBox,
                     "EXP (MONTHS): ", experience
             };
 
@@ -34,7 +36,7 @@ public class GeneralButtonsPanel extends JPanel {
 
             try{
                 int exp = Integer.parseInt(experience.getText());
-                mainViewController.addEmployee(new Employee(name.getText(), surname.getText(), job.getText(), exp));
+                mainViewController.addEmployee(new Employee(name.getText(), surname.getText(), positionJComboBox.getSelectedItem().toString(), exp));
             } catch (NumberFormatException ex){
                 JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "Please enter the experience in Integers");
             } catch (Exception ex){
