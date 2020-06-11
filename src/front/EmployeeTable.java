@@ -70,9 +70,13 @@ public class EmployeeTable extends JPanel {
     }
 
     public void removeEmployee(int selectedRow) {
-        listEmployees.remove(selectedRow);
-        ((EmployeeTableModel)table.getModel()).updateIndexes();
-        ((AbstractTableModel)table.getModel()).fireTableDataChanged();
+        try {
+            listEmployees.remove(selectedRow);
+            ((EmployeeTableModel) table.getModel()).updateIndexes();
+            ((AbstractTableModel) table.getModel()).fireTableDataChanged();
+        } catch (IndexOutOfBoundsException ex){
+            System.out.println("No element to delete");
+        }
 
     }
 }

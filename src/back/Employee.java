@@ -7,9 +7,19 @@ public class Employee implements Serializable {
     private String name, surname;
     private String job;
     private int experience; // MONTHS
+    private double salary;
 
-    public Employee(String name, String job, int experience) {
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public Employee(String name, String surname, String job, int experience) {
         this.name = name;
+        this.surname = surname;
         this.job = job;
         this.experience = experience;
     }
@@ -56,5 +66,13 @@ public class Employee implements Serializable {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

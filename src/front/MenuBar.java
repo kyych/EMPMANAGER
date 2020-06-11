@@ -50,7 +50,6 @@ public class MenuBar extends JMenuBar {
             }
         });
 
-
         JMenu menu = new JMenu("File");
 
 
