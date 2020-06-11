@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Employee implements Serializable {
     private int ID;
     private String name, surname;
-    private String job;
+    private Position job;
     private int experience; // MONTHS
     private double salary;
 
@@ -17,7 +17,7 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
-    public Employee(String name, String surname, String job, int experience) {
+    public Employee(String name, String surname, Position job, int experience) {
         this.name = name;
         this.surname = surname;
         this.job = job;
@@ -52,11 +52,11 @@ public class Employee implements Serializable {
         this.name = name;
     }
 
-    public String getJob() {
+    public Position getJob() {
         return job;
     }
 
-    public void setJob(String job) {
+    public void setJob(Position job) {
         this.job = job;
     }
 

@@ -2,9 +2,11 @@ package front;
 
 import back.Employee;
 import back.EmployeeTableModel;
+import back.Position;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import java.awt.*;
 import java.util.ArrayList;
@@ -49,6 +51,12 @@ public class EmployeeTable extends JPanel {
         //  code for sorting can be added here
         //  using default sorting provided by swing JTable
         table.setAutoCreateRowSorter(true);
+
+        //combobox
+        TableColumn positionColumn = table.getColumnModel().getColumn(3);   //3 is the JOB column
+                                                                                        //TODO: remove hardcoded value "3"
+        JComboBox<Position> comboBox = new JComboBox<Position>(Position.values());
+        positionColumn.setCellEditor(new DefaultCellEditor(comboBox));
 
         this.setLayout(new BorderLayout());
         add(new JScrollPane(table), BorderLayout.CENTER);

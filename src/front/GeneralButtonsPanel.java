@@ -36,7 +36,7 @@ public class GeneralButtonsPanel extends JPanel {
 
             try{
                 int exp = Integer.parseInt(experience.getText());
-                mainViewController.addEmployee(new Employee(name.getText(), surname.getText(), positionJComboBox.getSelectedItem().toString(), exp));
+                mainViewController.addEmployee(new Employee(name.getText(), surname.getText(), (Position) positionJComboBox.getSelectedItem(), exp));
             } catch (NumberFormatException ex){
                 JOptionPane.showMessageDialog(this.getRootPane().getContentPane(), "Please enter the experience in Integers");
             } catch (Exception ex){

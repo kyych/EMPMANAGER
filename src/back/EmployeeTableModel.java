@@ -97,7 +97,7 @@ public class EmployeeTableModel extends AbstractTableModel {
         } else if(COLUMN_NAME == columnIndex){
             row.setName((String) value);
         } else if(COLUMN_JOB==columnIndex){
-            row.setJob((String) value);
+            row.setJob((Position) value);
         } else if(COLUMN_JOB == columnIndex){
             row.setExperience((Integer)value);
         } else if(COLUMN_SURNAME == columnIndex){
